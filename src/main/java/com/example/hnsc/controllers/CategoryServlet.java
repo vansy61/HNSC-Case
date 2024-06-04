@@ -25,7 +25,34 @@ public class CategoryServlet extends HttpServlet {
             case "/list":
                showListCategory(req,resp);
                 break;
+            case "/create":
+                showFormCreateCategory(req,resp);
+                break;
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        String url = req.getPathInfo();
+        switch (url) {
+            case "/create":
+                insertCategory(req,resp);
+
+                break;
+            case "/update":
+                break;
+        }
+    }
+
+    private void insertCategory(HttpServletRequest req, HttpServletResponse resp) {
+
+    }
+
+    private void showFormCreateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.getRequestDispatcher("/views/category/create.jsp").forward(req,resp);
     }
 
     private void showListCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,5 +61,6 @@ public class CategoryServlet extends HttpServlet {
         req.setAttribute("categories",categories);
         req.getRequestDispatcher("/views/category/list.jsp").forward(req,resp);
     }
+
 
 }

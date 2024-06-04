@@ -30,4 +30,9 @@ public class CategoryRepo implements ICategoryRepo {
         return categories;
     }
 
+    @Override
+    public void insert() {
+
+    }
+
 }
