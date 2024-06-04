@@ -53,32 +53,7 @@
 </body>
 
 
-<%--<div class="container"></div>--%>
-<%--<div>--%>
-<%--    <div class="row" >--%>
-<%--        <div class ="col-4 nav-bar ">--%>
-<%--            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fminimarthagiang.vn%2F&psig=AOvVaw132ZnAbGq3s09VUgv5s5nv&ust=1717571227361000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDessixwYYDFQAAAAAdAAAAABAE" alt="">--%>
-<%--        </div>--%>
-<%--       <div class="col-4">--%>
-<%--           <ul>--%>
-<%--               <li>bán lẻ</li>--%>
-<%--               <li>Nhà Hàng, Cafe</li>--%>
-<%--               <li>Bảng giá</li>--%>
-<%--               <li>Khách hàng</li>--%>
-<%--           </ul>--%>
-<%--       </div>--%>
-<%--        <div class="col-4">--%>
-<%--            <ul>--%>
-<%--                <li>Blog</li>--%>
-<%--                <li>Trợ giúp</li>--%>
-<%--                <li>Thêm</li>--%>
-<%--                <li><a href="">Đăng ký</a></li>--%>
-<%--                <li><a href="">Đăng nhập</a></li>--%>
-<%--            </ul>--%>
-<%--        </div>--%>
 
-<%--    </div>--%>
-<%--</div>--%>
 
 
 
