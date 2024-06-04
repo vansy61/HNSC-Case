@@ -12,12 +12,12 @@
 
         <div class="col mb-3">
             <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-bac-lon-cao-330ml.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
-                        <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                        <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
+                        <p class="mb-0 me-3 fs-5 fw-bold text-primary">450.000 đ</p>
+                        <p class="mb-0 text-decoration-line-through"><small>475,000₫</small></p>
                     </div>
                     <div class="d-grid mt-4">
                         <a href="#" class="btn btn-outline-primary">
