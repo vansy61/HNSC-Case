@@ -16,6 +16,14 @@
         body {
             background-color: #f5f5f5;
         }
+        .line-bg-gradient{
+            background-image: linear-gradient(to right, rgb(255, 62, 52), rgb(255, 203, 66));
+            border-radius: 3px;
+        }
+        #demo {
+            margin-left: 10px;
+            margin-bottom: 0px;
+        }
     </style>
 
 </head>

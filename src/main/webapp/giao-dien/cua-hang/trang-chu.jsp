@@ -28,16 +28,28 @@
             </div>
         </div>
     </div>
-
-    <div>
-        <div>
+    <div class="mt-3">
+        <div class="d-flex justify-content-between  line-bg-gradient m-0 py-3 px-2">
             <div>
-                <h3>Duy nhất hôm nay</h3>
+                <h4 class="mb-0">Duy nhất hôm nay</h4>
             </div>
-
+            <div class="d-flex">
+                <h5 class="mb-0">Kết thúc trong</h5>
+                <div class="shadow-sm bg-danger text-white p-1 mx-1">
+                    <h5 id="hours" class="mb-0 lh-base px-1"></h5>
+                </div>
+                <div class="shadow-sm bg-danger text-white p-1 me-1">
+                    <h5 id="minutes" class="mb-0 lh-base px-1"></h5>
+                </div>
+                <div class="shadow-sm bg-danger text-white p-1">
+                    <h5 id="seconds" class="mb-0 lh-base px-1"></h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <%@include file="/giao-dien/cua-hang/shared/footer.jsp" %>
+
+<script src="${pageContext.request.contextPath}/js/coundown.js"></script>
 </body>
 </html>
