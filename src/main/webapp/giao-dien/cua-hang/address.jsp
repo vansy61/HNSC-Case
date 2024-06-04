@@ -8,23 +8,30 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
-            <div class="shadow rounded p-3">
-                <h4>Nhập địa chỉ giao hàng</h4>
+            <div class="shadow-sm rounded p-3 bg-white">
+                <h4 class="mb-3">Nhập địa chỉ giao hàng</h4>
                 <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div class="mb-3 form-floating">
+                        <input type="email" class="form-control" id="name" placeholder="Họ và tên">
+                        <label for="name" class="form-label">Họ và tên</label>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="phone" placeholder="Số điện thoại ">
+                        <label for="phone" class="form-label">Số điện thoại</label>
+
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="email" placeholder="Email">
+                        <label for="email" class="form-label">Email</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="address" placeholder="Địa chỉ">
+                        <label for="address" class="form-label">Địa chỉ</label>
+                    </div>
+                    <div class="d-grid gap-2 mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg">Đặt Hàng</button>
+                    </div>
                 </form>
             </div>
         </div>
