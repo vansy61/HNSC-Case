@@ -57,11 +57,11 @@ public class ProductServlet extends HttpServlet {
 
         List<Product> products = productService.selectAll();
         req.setAttribute("products", products);
-        req.getRequestDispatcher("/giao-dien/admin/product/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
     }
 
     private void showFormCreateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/giao-dien/admin/product/create.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/product/create.jsp").forward(req, resp);
     }
 
     private void insertProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -89,7 +89,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         Product product = productService.selectProduct(id);
         req.setAttribute("product", product);
-        req.getRequestDispatcher("/giao-dien/admin/product/update.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
     }
 
     private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -110,7 +110,7 @@ public class ProductServlet extends HttpServlet {
         String keyword = req.getParameter("keyword");
         List<Product> products = productService.searchProductByName(keyword);
         req.setAttribute("products",products);
-        req.getRequestDispatcher("/giao-dien/admin/product/list.jsp").forward(req,resp);
+        req.getRequestDispatcher("/views/product/list.jsp").forward(req,resp);
     }
 
 

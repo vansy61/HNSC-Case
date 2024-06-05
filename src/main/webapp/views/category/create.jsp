@@ -10,7 +10,7 @@
 <html>
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
 <body>
-
+<%@include file="/views/shared/menu.jsp" %>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">

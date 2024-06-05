@@ -11,6 +11,7 @@
 <html lang="en">
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
 <body class="bg-body-tertiary">
+<%@include file="/views/shared/menu.jsp" %>
 <div class="container mt-5 ">
     <div class="bg-white">
         <div class="d-flex justify-content-between border-bottom px-3 py-2 align-items-center">
