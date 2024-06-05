@@ -8,9 +8,12 @@ import java.util.List;
 public interface ICategoryRepo {
 
     List<Category> selectAll() throws SQLException;
-    public void insertA(Category category);
+     void insertA(Category category);
 
-
+    void deleteCategory(int id);
     Category findById(int id);
+
+
+    void updateCategory(Category category);
 }
 

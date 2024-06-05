@@ -51,12 +51,57 @@ public class CategoryRepo implements ICategoryRepo {
     public Category findById(int id) {
         try {
             Connection connection = new DBConnect().getConnection();
-            String sql = "Select * From categories where id=?";
-            return null;
+            String sql = "Select * From categories where id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                Category category = new Category();
+                category.setId(rs.getInt("id"));
+                category.setName(rs.getString("name"));
+                category.setDescription(rs.getString("description"));
+                category.setAvatar(rs.getString("avatar"));
+                return category;
+            } else {
+                return null;
+            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
-        }return null;
-
+        }
+        return null;
     }
+
+    @Override
+    public void updateCategory(Category category) {
+        try {
+            Connection connection = new DBConnect().getConnection();
+            String sql = "update categories set name = ?,  avatar = ? ,description = ? where id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, category.getName());
+            preparedStatement.setString(2, category.getAvatar());
+            preparedStatement.setString(3, category.getDescription());
+            preparedStatement.setInt(4, category.getId());
+            preparedStatement.executeUpdate();
+            System.out.println(category.getName());
+            System.out.println(category.getId());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void deleteCategory(int id) {
+        try {
+            Connection connection = new DBConnect().getConnection();
+            String sql = "delete From categories where id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 }

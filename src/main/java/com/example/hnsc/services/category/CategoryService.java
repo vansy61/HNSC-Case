@@ -10,6 +10,7 @@ import java.util.List;
 
 public class CategoryService implements ICategoryService {
     private ICategoryRepo categoryRepo = new CategoryRepo();
+
     @Override
     public List<Category> selectAll() {
         try {
@@ -31,8 +32,19 @@ public class CategoryService implements ICategoryService {
         categoryRepo.insertA(category);
     }
 
-    public void findById(int id) {
- categoryRepo.findById(id);
+    public Category findById(int id) {
+
+        return categoryRepo.findById(id);
     }
+
+    public void deleteCategory(int id) {
+        categoryRepo.deleteCategory(id);
+    }
+
+    @Override
+    public void updateCategory(Category category) {
+        categoryRepo.updateCategory(category);
+    }
+
 
 }

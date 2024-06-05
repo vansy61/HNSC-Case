@@ -9,8 +9,12 @@ public interface IProductRepo {
     List<Product> selectAll() throws SQLException;
 
     void insert(Product product) throws SQLException;
+
     Product selectProduct(int id) throws SQLException;
+
     void delete(int id) throws SQLException;
+
     void update(Product product) throws SQLException;
     List<Product> searchProductByName(String keyword) throws SQLException;
 }
+
