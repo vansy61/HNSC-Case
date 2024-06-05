@@ -52,7 +52,6 @@ public class CategoryRepo implements ICategoryRepo {
         try {
             Connection connection = new DBConnect().getConnection();
             String sql = "Select * From categories where id=?";
-
             return null;
         } catch (Exception e) {
             System.out.println(e.getMessage());
