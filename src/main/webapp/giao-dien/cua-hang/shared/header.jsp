@@ -15,21 +15,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ">
-                    <a class="nav-link active fw-bold" aria-current="page" href="#">Trang chủ</a>
+                    <a class="nav-link active fw-bold" aria-current="page" href="/">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Đăng nhập</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Danh mục sản phẩm
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Bia</a></li>
-                        <li><a class="dropdown-item" href="#">Bánh</a></li>
-                        <li><a class="dropdown-item" href="#">Kẹo</a></li>
-                    </ul>
+                    <a class="nav-link fw-bold" href="/login">Đăng nhập</a>
                 </li>
 
             </ul>

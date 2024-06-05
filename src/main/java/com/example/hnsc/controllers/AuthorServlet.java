@@ -5,6 +5,8 @@ import com.example.hnsc.services.user.UserService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,17 @@ import java.io.IOException;
 
 @WebServlet(name="AuthorServlet",urlPatterns = {"/login"})
 public class AuthorServlet extends HttpServlet {
+
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        if(session.getAttribute("user_id") != null){
+            resp.sendRedirect("/admin/categories/list");
+            return;
+        }
+        super.service(req, resp);
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getRequestURI();

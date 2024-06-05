@@ -15,6 +15,8 @@ public class AdminFilter implements Filter {
         if (session.getAttribute("user_id") == null) {
             ((HttpServletResponse) response).sendRedirect("/login");
         } else {
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
             chain.doFilter(request, response);
         }
     }
