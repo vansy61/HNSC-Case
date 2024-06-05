@@ -77,4 +77,44 @@ public class ProductRepo implements IProductRepo {
         ps.setInt(1, id);
         ps.executeUpdate();
     }
+
+    @Override
+    public void update(Product product) throws SQLException {
+        Connection connection = new DBConnect().getConnection();
+        String sql = "update products set sku = ?, name = ?, price = ?, description = ?, avatar = ?, cost_price = ?, quantity = ? where id = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, product.getSku());
+        ps.setString(2, product.getName());
+        ps.setDouble(3, product.getPrice());
+        ps.setString(4, product.getDescription());
+        ps.setString(5, product.getAvatar());
+        ps.setDouble(6, product.getCostPrice());
+        ps.setInt(7, product.getQuantity());
+        ps.setInt(8, product.getId());
+        ps.executeUpdate();
+    }
+
+    @Override
+    public List<Product> searchProductByName(String keyword) throws SQLException {
+        List<Product> products = new ArrayList<>();
+        Connection connection = new DBConnect().getConnection();
+        String sql = "select * from products where name like ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        System.out.println(keyword);
+        ps.setString(1, "%" + keyword +"%");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setId(rs.getInt("id"));
+            product.setSku(rs.getString("sku"));
+            product.setName(rs.getString("name"));
+            product.setPrice(rs.getDouble("price"));
+            product.setDescription(rs.getString("description"));
+            product.setAvatar(rs.getString("avatar"));
+            product.setCostPrice(rs.getDouble("cost_price"));
+            product.setQuantity(rs.getInt("quantity"));
+            products.add(product);
+        }
+        return products;
+    }
 }

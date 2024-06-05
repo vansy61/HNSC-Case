@@ -24,10 +24,10 @@
             <div class="row justify-content-end">
 
                 <div class="col-5">
-                    <form action="" class="d-flex">
-                        <input class="form-control form-control-sm" type="text" placeholder="Tìm kiếm theo tên sản phẩm"
+                    <form action="/admin/products/search" class="d-flex">
+                        <input class="form-control form-control-sm" type="text" name="keyword" placeholder="Tìm kiếm theo tên sản phẩm"
                                aria-label=".form-control-sm example">
-                        <button class="btn btn-outline-primary ms-3">Tìm</button>
+                        <button class="btn btn-outline-primary ms-3" >Tìm</button>
                     </form>
                 </div>
 
@@ -61,7 +61,7 @@
                         <td>${product.quantity}</td>
                         <td>
                             <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">Xoá</a>
-                            <a href="" class="btn btn-sm btn-outline-primary ms-1">Sửa</a>
+                            <a href="/admin/products/update?id=${product.id}" class="btn btn-sm btn-outline-primary ms-1">Sửa</a>
                         </td>
                     </tr>
                 </c:forEach>

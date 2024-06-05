@@ -44,4 +44,22 @@ public class ProductService implements IProductService{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void update(Product product) {
+        try {
+            productRepo.update(product);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Product> searchProductByName(String keyword) {
+        try {
+           return productRepo.searchProductByName(keyword);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

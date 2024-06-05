@@ -3,6 +3,7 @@ package com.example.hnsc.controllers;
 import com.example.hnsc.models.Product;
 import com.example.hnsc.services.product.ProductService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,12 @@ public class ProductServlet extends HttpServlet {
             case "/delete":
                 deleteProduct(req, resp);
                 break;
+            case "/update":
+                showFormUpdateProduct(req, resp);
+                break;
+            case "/search":
+                searchProduct(req, resp);
+                break;
         }
     }
 
@@ -38,6 +45,9 @@ public class ProductServlet extends HttpServlet {
         switch (url) {
             case "/create":
                 insertProduct(req, resp);
+                break;
+            case "/update":
+                updateProduct(req, resp);
                 break;
         }
     }
@@ -74,5 +84,34 @@ public class ProductServlet extends HttpServlet {
         req.setAttribute("products", products);
         resp.sendRedirect("/admin/products/list");
     }
+
+    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product product = productService.selectProduct(id);
+        req.setAttribute("product", product);
+        req.getRequestDispatcher("/giao-dien/admin/product/update.jsp").forward(req, resp);
+    }
+
+    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String sku = req.getParameter("sku");
+        String name = req.getParameter("name");
+        double price = Double.parseDouble(req.getParameter("price"));
+        String description = req.getParameter("description");
+        String avatar = req.getParameter("avatar");
+        double cost_price = Double.parseDouble(req.getParameter("cost_price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        Product product = new Product(id, sku, name, price, description, avatar, cost_price, quantity);
+        productService.update(product);
+        resp.sendRedirect("/admin/products/list");
+    }
+
+    private void searchProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String keyword = req.getParameter("keyword");
+        List<Product> products = productService.searchProductByName(keyword);
+        req.setAttribute("products",products);
+        req.getRequestDispatcher("/giao-dien/admin/product/list.jsp").forward(req,resp);
+    }
+
 
 }
