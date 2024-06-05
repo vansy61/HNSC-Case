@@ -17,9 +17,9 @@
                 <p>Số lượng:</p>
                 <div class="mb-3">
                     <div class="d-flex">
-                        <button class="btn btn-secondary rounded-end-0 border-end-0">-</button>
-                        <input type="text" class="form-control rounded-0 border-secondary text-center" style="width: 70px;" value="1">
-                        <button class="btn btn-secondary rounded-start-0 border-start-0">+</button>
+                        <button class="btn btn-secondary rounded-end-0 border-end-0 btn-minus">-</button>
+                        <input type="text" id ="number" class="form-control rounded-0 border-secondary text-center" style="width: 70px;" value="1">
+                        <button class="btn btn-secondary rounded-start-0 border-start-0 btn-plus">+</button>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -40,5 +40,7 @@
 
 </div>
 <%@include file="/giao-dien/cua-hang/shared/footer.jsp" %>
+<script src="${pageContext.request.contextPath}/js/up_down-button.js"></script>
 </body>
+
 </html>

@@ -41,12 +41,12 @@
                             <p>Giá</p>
                             <div class="mb-3">
                                 <div class="d-flex">
-                                    <button class="btn btn-secondary rounded-end-0 border-end-0" onclick="minor()">-
+                                    <button class="btn btn-secondary rounded-end-0 border-end-0 btn-minus">-
                                     </button>
-                                    <input id="number" type="text"
+                                    <input id="numbers" type="text"
                                            class="form-control rounded-0 border-secondary text-center"
-                                           style="width: 70px;" value="0">
-                                    <button class="btn btn-secondary rounded-start-0 border-start-0" onclick="plus()">
+                                           style="width: 50px;" value="1">
+                                    <button class="btn btn-secondary rounded-start-0 border-start-0 btn-plus">
                                         +
                                     </button>
                                 </div>
@@ -78,12 +78,12 @@
                             <p>Giá</p>
                             <div class="mb-3">
                                 <div class="d-flex">
-                                    <button class="btn btn-secondary rounded-end-0 border-end-0" onclick="minor()">-
+                                    <button class="btn btn-secondary rounded-end-0 border-end-0 btn-minus">-
                                     </button>
-                                    <input id="number" type="text"
+                                    <input type="text"
                                            class="form-control rounded-0 border-secondary text-center"
-                                           style="width: 70px;" value="0">
-                                    <button class="btn btn-secondary rounded-start-0 border-start-0" onclick="plus()">
+                                           style="width: 50px;" value="1">
+                                    <button class="btn btn-secondary rounded-start-0 border-start-0 btn-plus">
                                         +
                                     </button>
                                 </div>
