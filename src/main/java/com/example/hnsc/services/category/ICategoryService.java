@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ICategoryService {
     List<Category> selectAll();
+    void insert(Category category);
 }

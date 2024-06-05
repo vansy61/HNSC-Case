@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-between border-bottom px-3 py-2 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Phân loại sản phẩm</h6>
             <div>
-                <a class="btn btn-sm btn-primary px-4" type="submit">Thêm Phân loại</a>
+                <a class="btn btn-sm btn-primary px-4" href="/admin/categories/create">Thêm Phân loại</a>
             </div>
         </div>
         <div class="px-3 pb-2">
@@ -38,7 +38,7 @@
                         <td>${category.avatar}</td>
                         <td>${category.description}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-outline-danger">Xoá</a>
+                            <a href="/admin/categories/delete?id=${catagory.id}" class="btn btn-sm btn-outline-danger" >Xoá</a>
                             <a href="" class="btn btn-sm btn-outline-primary ms-1">Sửa</a>
                         </td>
                     </tr>

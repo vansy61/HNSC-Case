@@ -31,7 +31,32 @@ public class CategoryRepo implements ICategoryRepo {
     }
 
     @Override
-    public void insert() {
+    public void insertA(Category category) {
+        try {
+            Connection connection = new DBConnect().getConnection();
+            String sql = "Insert into categories(name,avatar,description) value (?,?,?) ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, category.getName());
+            preparedStatement.setString(2, category.getAvatar());
+            preparedStatement.setString(3, category.getDescription());
+            preparedStatement.execute();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    @Override
+    public Category findById(int id) {
+        try {
+            Connection connection = new DBConnect().getConnection();
+            String sql = "Select * From categories where id=?";
+
+            return null;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }return null;
 
     }
 
