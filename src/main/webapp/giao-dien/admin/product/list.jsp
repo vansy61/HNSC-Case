@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -15,7 +16,7 @@
         <div class="d-flex justify-content-between border-bottom px-3 py-2 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả sản phẩm</h6>
             <div>
-                <a class="btn btn-sm btn-primary px-4" type="submit">Thêm sản phẩm mới</a>
+                <a class="btn btn-sm btn-primary px-4" type="submit" href="/admin/products/create">Thêm sản phẩm mới</a>
             </div>
         </div>
 
@@ -36,8 +37,9 @@
             <table class="table text-center">
                 <thead class="table-light">
                 <tr>
+                    <th>Số thứ tự</th>
                     <th>Sku</th>
-                    <th >Sản phẩm</th>
+                    <th>Sản phẩm</th>
                     <th>Giá</th>
                     <th>Mô tả</th>
                     <th>Ảnh</th>
@@ -47,19 +49,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td >MSP005</td>
-                    <td>Ma túy</td>
-                    <td>5,000,000</td>
-                    <td>Thực phẩm chức năng</td>
-                    <td>img</td>
-                    <td>2,500,000</td>
-                    <td>100</td>
-                    <td>
-                        <a href="" class="btn btn-sm btn-outline-danger">Xoá</a>
-                        <a href="" class="btn btn-sm btn-outline-primary ms-1">Sửa</a>
-                    </td>
-                </tr>
+                <c:forEach var="product" items="${products}" varStatus="status">
+                    <tr>
+                        <td>${status.count}</td>
+                        <td>${product.sku}</td>
+                        <td>${product.name}</td>
+                        <td>${product.price}</td>
+                        <td>${product.description}</td>
+                        <td>${product.avatar}</td>
+                        <td>${product.costPrice}</td>
+                        <td>${product.quantity}</td>
+                        <td>
+                            <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">Xoá</a>
+                            <a href="" class="btn btn-sm btn-outline-primary ms-1">Sửa</a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <nav aria-label="...">

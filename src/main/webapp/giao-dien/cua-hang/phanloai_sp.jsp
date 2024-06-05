@@ -11,8 +11,9 @@
     <div class="row">
 
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-bac-lon-cao-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-bac-lon-cao-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Bia Heineken Silver 330ML</h6>
                     <div class="d-flex align-items-end">
@@ -28,8 +29,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -45,8 +47,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -62,8 +65,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -79,8 +83,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -99,8 +104,9 @@
         <div class="col-12"></div>
 
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Bia Heineken Silver 330ML</h6>
                     <div class="d-flex align-items-end">
@@ -116,8 +122,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -133,8 +140,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -150,8 +158,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -167,8 +176,9 @@
             </div>
         </div>
         <div class="col mb-3">
-            <div class="card border-0 shadow-sm" >
-                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top" alt="...">
+            <div class="card border-0 shadow-sm">
+                <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
+                     alt="...">
                 <div class="card-body">
                     <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                     <div class="d-flex align-items-end">
@@ -191,7 +201,7 @@
             <div class="col">
                 <img src="https://cdn-crownx.winmart.vn/images/prod/162964655378716287682220181-1--og.png" alt="">
                 <p class="mt-2"><b>Sản phẩm an toàn</b></p>
-            </div >
+            </div>
             <div class="col">
                 <img src="https://cdn-crownx.winmart.vn/images/prod/162964658411816287682628462-1--og.png" alt="">
                 <p class="mt-2"><b>Chất lượng cam kết</b></p>

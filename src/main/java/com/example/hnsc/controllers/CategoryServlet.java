@@ -39,7 +39,6 @@ public class CategoryServlet extends HttpServlet {
         switch (url) {
             case "/create":
                 insertCategory(req,resp);
-
                 break;
             case "/update":
                 break;
@@ -51,7 +50,6 @@ public class CategoryServlet extends HttpServlet {
     }
 
     private void showFormCreateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         req.getRequestDispatcher("/views/category/create.jsp").forward(req,resp);
     }
 
