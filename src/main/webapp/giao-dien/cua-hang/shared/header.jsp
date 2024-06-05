@@ -20,7 +20,9 @@
                 <li class="nav-item">
                     <a class="nav-link fw-bold" href="/login">Đăng nhập</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/history">Lịch sử đặt hàng</a>
+                </li>
             </ul>
             <form class="d-flex pe-3">
                 <input class="form-control me-2" type="search" placeholder="Tìm Kiếm" aria-label="Search">
