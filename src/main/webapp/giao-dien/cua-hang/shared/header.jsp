@@ -7,8 +7,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm ">
     <div class="container-fluid">
-        <img src="https://dukaan.b-cdn.net/1000x1000/webp/4618976/1419d279-745e-470d-aaef-b887e5d342dd/mini-mart-478fe2d7-91f7-4400-87d3-9761191689fc.png"
-             alt="" style="width: 50px;height: 50px ">
+        <img src="/image/HNSC.png" alt="" style="width: 100px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
