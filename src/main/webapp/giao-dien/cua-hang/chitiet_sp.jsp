@@ -40,7 +40,7 @@
 
 </div>
 <%@include file="/giao-dien/cua-hang/shared/footer.jsp" %>
-<script src="${pageContext.request.contextPath}/js/up_down-button.js"></script>
+
 </body>
 
 </html>

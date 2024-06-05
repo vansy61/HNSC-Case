@@ -1,4 +1,4 @@
-package com.example.hnsc.repositories;
+package com.example.hnsc.repositories.category;
 
 import com.example.hnsc.database.DBConnect;
 import com.example.hnsc.models.Category;

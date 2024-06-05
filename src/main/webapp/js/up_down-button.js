@@ -12,7 +12,6 @@
 //
 // }
 document.addEventListener("DOMContentLoaded", () => {
-
     document.querySelectorAll('.btn-plus').forEach(function (el) {
         el.addEventListener("click", function () {
             let a = el.previousElementSibling.value;

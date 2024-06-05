@@ -11,8 +11,6 @@
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
 <body>
 <%@include file="/giao-dien/cua-hang/shared/header.jsp" %>
-<script src="${pageContext.request.contextPath}/js/up_down-button.js">
-</script>
 
 <div class="container py-4">
     <div class="row ">

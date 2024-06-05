@@ -1,8 +1,7 @@
-package com.example.hnsc.services;
+package com.example.hnsc.services.category;
 
 import com.example.hnsc.models.Category;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface ICategoryService {
