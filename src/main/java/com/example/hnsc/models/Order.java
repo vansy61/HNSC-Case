@@ -9,6 +9,9 @@ public class Order {
     private OrderAddress orderAddress;
     private List<OrderItem> orderItems;
 
+    public Order() {
+    }
+
     public Order(int id, String number, double total, OrderAddress orderAddress) {
         this.id = id;
         this.number = number;

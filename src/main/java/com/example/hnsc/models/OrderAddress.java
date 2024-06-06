@@ -6,16 +6,30 @@ public class OrderAddress {
     private String address;
     private String email;
     private String phoneNumber;
+    private int order_id;
 
-    public OrderAddress(int id, String name, String address, String email, String phoneNumber) {
+    public OrderAddress() {
+    }
+
+    public OrderAddress(int id, String name, String address, String email, String phoneNumber, int order_id) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.order_id = order_id;
     }
 
-    public OrderAddress(String name, String address, String email, String phoneNumber) {
+    public OrderAddress(String name, String address, String email, String phoneNumber,int order_id) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.order_id = order_id;
+    }
+
+    public OrderAddress(int id, String name, String address, String email, String phoneNumber) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.email = email;
@@ -60,5 +74,13 @@ public class OrderAddress {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
     }
 }

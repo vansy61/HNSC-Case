@@ -1,4 +1,4 @@
-package com.example.hnsc.repositories.Order;
+package com.example.hnsc.repositories.order;
 
 import com.example.hnsc.database.DBConnect;
 import com.example.hnsc.models.Order;
@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static java.lang.Math.random;
 
 public class OrderRepo implements IOrderRepo {
     @Override
@@ -51,14 +49,14 @@ public class OrderRepo implements IOrderRepo {
         ps.executeUpdate();
         return number;
     }
+    @Override
     public Order findOrderByNumber(String number) throws SQLException {
         Connection connection = new DBConnect().getConnection();
         String sql = "select * from orders where number = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, number);
         ResultSet rs = ps.executeQuery();
-        rs.getString(1);
-
-        Order order = null;
+        Order order = new Order();
         while (rs.next()) {
             order.setId(rs.getInt("id"));
             order.setNumber(rs.getString("number"));
@@ -66,4 +64,29 @@ public class OrderRepo implements IOrderRepo {
         }
         return order;
     }
+
+    @Override
+    public Order findOrderById(int id) throws SQLException {
+        Connection connection = new DBConnect().getConnection();
+        String sql = "select a.id as addressId,a.name,a.address,a.email,a.phone_number,o.* from orders o join addresses a on a.order_id = o.id where o.id = ?;";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        Order order = new Order();
+        OrderAddress orderAddress = new OrderAddress();
+        while (rs.next()) {
+            orderAddress.setId(rs.getInt("addressId"));
+            orderAddress.setName(rs.getString("name"));
+            orderAddress.setAddress(rs.getString("address"));
+            orderAddress.setEmail(rs.getString("email"));
+            orderAddress.setPhoneNumber(rs.getString("phone_number"));
+            order.setId(rs.getInt("id"));
+            order.setNumber(rs.getString("number"));
+            order.setTotal(rs.getDouble("total"));
+            order.setOrderAddress(orderAddress);
+        }
+        return order;
+    }
+
+
 }

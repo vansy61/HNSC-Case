@@ -7,4 +7,6 @@ import java.util.List;
 public interface IOrderService {
     List<Order> selectAll();
     String insertOrder();
+    Order findOrderByNumber(String number);
+    Order findOrderById(int id);
 }

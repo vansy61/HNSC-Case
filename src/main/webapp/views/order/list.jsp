@@ -17,7 +17,7 @@
         <div class="d-flex justify-content-between border-bottom px-3 py-2 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả sản phẩm</h6>
             <div>
-                <a class="btn btn-sm btn-primary px-4" type="submit" href="">Thêm đơn hàng mới</a>
+                <a class="btn btn-sm btn-primary px-4"  href="/admin/orders/create">Thêm đơn hàng mới</a>
             </div>
         </div>
 

@@ -59,7 +59,6 @@
                             <td>${product.name}</td>
                             <td>${product.price}</td>
                             <td>${product.description}</td>
-
                             <td>${product.costPrice}</td>
                             <td>${product.quantity}</td>
                             <td>${product.category.name}</td>
