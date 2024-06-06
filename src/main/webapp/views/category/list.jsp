@@ -23,12 +23,12 @@
             </div>
         </div>
         <div class="p-3 bg-white shadow-sm">
-            <table class="table">
+            <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên</th>
                         <th>Ảnh</th>
+                        <th>Tên</th>
                         <th>Mô tả</th>
                         <th>Hành động</th>
                     </tr>
@@ -37,8 +37,11 @@
                 <c:forEach var="category" items="${categories}" varStatus="status">
                     <tr>
                         <td>${status.count}</td>
+                        <td>
+                            <img src="${category.avatar}" class="img-fluid" style="width: 40px;">
+                        </td>
                         <td>${category.name}</td>
-                        <td>${category.avatar}</td>
+
                         <td>${category.description}</td>
                         <td>
 
