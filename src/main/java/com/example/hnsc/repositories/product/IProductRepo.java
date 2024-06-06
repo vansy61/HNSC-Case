@@ -16,5 +16,6 @@ public interface IProductRepo {
 
     void update(Product product) throws SQLException;
     List<Product> searchProductByName(String keyword) throws SQLException;
+    List<Product> searchProductByName(String keyword, int limit);
 }
 

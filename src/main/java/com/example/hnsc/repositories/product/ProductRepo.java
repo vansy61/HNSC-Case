@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductRepo implements IProductRepo {
@@ -117,6 +118,36 @@ public class ProductRepo implements IProductRepo {
             product.setQuantity(rs.getInt("quantity"));
             products.add(product);
         }
+        return products;
+    }
+
+    @Override
+    public List<Product> searchProductByName(String keyword, int limit) {
+        List<Product> products = new ArrayList<>();
+        Connection connection = new DBConnect().getConnection();
+        String sql = "select * from products where name like ? order by id desc limit ?";
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, "%" + keyword +"%");
+            ps.setInt(2, limit);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setQuantity(rs.getInt("quantity"));
+                products.add(product);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return products;
     }
 }

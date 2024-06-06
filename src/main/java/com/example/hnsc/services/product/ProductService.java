@@ -5,6 +5,7 @@ import com.example.hnsc.repositories.product.IProductRepo;
 import com.example.hnsc.repositories.product.ProductRepo;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductService implements IProductService{
@@ -62,4 +63,10 @@ public class ProductService implements IProductService{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Product> searchProductByName(String keyword, int limit) {
+        return productRepo.searchProductByName(keyword, limit);
+    }
+
 }

@@ -11,5 +11,5 @@ public interface IProductService {
     void delete(int id);
     void update(Product product);
     List<Product> searchProductByName(String keyword);
-
+    List<Product> searchProductByName(String keyword, int limit);
 }
