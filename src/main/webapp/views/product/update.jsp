@@ -50,7 +50,7 @@
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
-                        <img id="imagePreview" src="${category.avatar}" alt="Image Preview">
+                        <img id="imagePreview" src="${product.avatar}" class="img-fluid" alt="Image Preview">
                     </div>
 
                     <select class="form-select form-select-lg mb-3" name="category_id">
