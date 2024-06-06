@@ -8,12 +8,12 @@
 <div class="container">
     <div class="row bg-white p-3 my-4 rounded">
         <div class="col-5">
-            <img src="https://iwater.vn/Image/Picture/Bia/Heineken-bac-lon-cao-330ml.png" alt="">
+            <img src="${product.avatar}" class="img-fluid" alt="">
         </div>
         <div class="col-7">
             <div>
-                <h3>BIA HEINIKEN SILVER 330ML</h3>
-                <h1 class="text-danger">Giá bán: 475,000₫</h1>
+                <h3>${product.name}</h3>
+                <h1 class="text-danger">${product.price}</h1>
                 <p>Số lượng:</p>
                 <div class="mb-3">
                     <div class="d-flex">
@@ -28,10 +28,8 @@
                 </div>
                 <div class="mb-3">
                     <b>Thông tin chi tiết:</b>
-                    Nồng độ cồn 4%, Heineken Silver có hương vị cân bằng hoàn hảo và vị đắng nhẹ mà vẫn giữ trọn nét đặc trưng của Heineken nguyên bản.
-                    Nghiên cứu thị trường của thương hiệu này cho thấy khách hàng có nhu cầu thưởng thức Heineken theo nhiều cách, trong nhiều thời điểm hơn. Hiểu tâm lý này, Heineken ra mắt Heineken Silver có vị nhẹ êm dễ uống, đồng thời lưu giữ trọn vẹn hương vị đậm chất.
-                    Giống như dòng nguyên bản, sản phẩm mới này cho ra loại lon cao và chai thủy tinh mang sắc xanh biểu tượng của hãng với nhãn giấy bạc đảm bảo nguyên vẹn chất lượng bia. Bên cạnh đó, Heineken nguyên bản cũng khoác lên mình diện mạo mới đồng nhất trên toàn thế giới, có dáng vẻ hiện đại và năng động hơn.
-                </div>
+                    ${product.description}
+                       </div>
             </div>
         </div>
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductController", urlPatterns = "/store/products/*")
@@ -29,7 +30,11 @@ public class ProductController extends HttpServlet {
     }
 
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id =Integer.parseInt(req.getParameter("id")) ;
+        System.out.println(id);
+        ProductService productService = new ProductService();
+        Product product = productService.selectProduct(id);
+        req.setAttribute("product",product);
         req.getRequestDispatcher("/views/store/products/show.jsp").forward(req, resp);
-
     }
 }
