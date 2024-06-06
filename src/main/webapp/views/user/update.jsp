@@ -21,25 +21,26 @@
             </c:if>
             <div class="shadow-sm rounded p-3 bg-white">
                 <h4 class="mb-3">Nhập thông tin cần sửa</h4>
-                <form action="/admin/categories/update" method="post">
-                    <input type="hidden" name="id" value="${category.id}">
+                <form action="/admin/users/update" method="post">
+                    <input type="hidden" name="id" value="${user.id}">
                     <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="tên" name="name" value="${category.name}">
+                        <input type="text" class="form-control" id="name" placeholder="tên" name="name" value="${user.name}">
                         <label for="name" class="form-label">Tên</label>
                     </div>
 
                     <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" id="description" placeholder="Mô tả" name="description" value="${category.description}">
-                        <label for="description" class="form-label">Mô tả</label>
+                        <input type="text" class="form-control" id="email" placeholder="email" name="email" value="${user.email}">
+                        <label for="email" class="form-label">email</label>
                     </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="imageInput">Upload</label>
-                        <input type="file" class="form-control" id="imageInput">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="password" placeholder="password" name="password" value="${user.password}">
+                        <label for="password" class="form-label">password</label>
                     </div>
-                    <div id="previewContainer">
-                        <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
-                        <img id="imagePreview" src="${category.avatar}" alt="Image Preview">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control" id="otp_code" placeholder="otp_code" name="otp_code" value="${user.otp_code}">
+                        <label for="otp_code" class="form-label">otp_code</label>
                     </div>
+
                     <div class="d-grid gap-2 mt-5">
                         <button type="submit" class="btn btn-primary btn-lg" >Lưu</button>
                     </div>

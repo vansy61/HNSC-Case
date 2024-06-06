@@ -10,8 +10,7 @@ public class DBConnect {
     private static String dbURL = "jdbc:mysql://localhost:3306/minimart?useSSL=false";
     private static String dbUser = "root";
 
-    private static String dbPassword = "120599";
-
+    private static String dbPassword = "rambolun190";
 
 
     public Connection getConnection() {

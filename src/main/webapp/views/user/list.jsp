@@ -12,12 +12,13 @@
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
 <body class="bg-body-tertiary">
 <%@include file="/views/shared/menu.jsp" %>
+
 <div class="container mt-5 ">
     <div>
         <div class="d-flex justify-content-between p-3 shadow-sm bg-white mb-3 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả nhân sự</h6>
             <div>
-                <a class="btn btn-sm btn-primary px-4" type="submit" href="/">Thêm nhân sự</a>
+                <a class="btn btn-sm btn-primary px-4" type="submit" href="/admin/users/create">Thêm nhân sự</a>
             </div>
         </div>
         <div class="p-3 bg-white mb-2 shadow-sm">
@@ -38,32 +39,27 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>#</th>
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Password</th>
+                        <th>Otp_code</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="product" items="${products}" varStatus="status">
+                    <c:forEach var="userList" items="${userList}" varStatus="status">
                         <tr>
+                            <td>${status.count}</td>
+                            <td>${userList.name}</td>
+                            <td>${userList.email}</td>
+                            <td>${userList.password}</td>
+                            <td>${userList.otp_code}</td>
                             <td>
-                                <img src="${product.avatar}" class="img-fluid" style="width: 40px;">
-                            </td>
-                            <td>${product.sku}</td>
-                            <td>${product.name}</td>
-                            <td>${product.price}</td>
-                            <td>${product.description}</td>
-
-                            <td>${product.costPrice}</td>
-                            <td>${product.quantity}</td>
-                            <td>${product.category.name}</td>
-                            <td>
-                                <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">
+                                <a href="/admin/users/delete?id=${userList.id}" class="btn btn-sm btn-outline-danger">
                                     <i class="fa-solid fa-trash"></i>
                                     Xoá
                                 </a>
-                                <a href="/admin/products/update?id=${product.id}" class="btn btn-sm btn-outline-primary ms-1">
+                                <a href="/admin/users/update?id=${userList.id}" class="btn btn-sm btn-outline-primary ms-1">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                     Sửa
                                 </a>

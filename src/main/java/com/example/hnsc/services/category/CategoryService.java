@@ -33,7 +33,6 @@ public class CategoryService implements ICategoryService {
     }
 
     public Category findById(int id) {
-
         return categoryRepo.findById(id);
     }
 

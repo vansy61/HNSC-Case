@@ -5,13 +5,30 @@ public class User {
     private String name;
     private  String email;
     private String password;
+    private int otp_code;
 
     public User() {};
-    public User(int id, String name, String email, String password) {
+    public User(String name, String email, String password, int otp_code) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.otp_code = otp_code;
+    }
+
+    public User(int id, String name, String email, String password, int otp_code) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.otp_code = otp_code;
+    }
+
+    public int getOtp_code() {
+        return otp_code;
+    }
+
+    public void setOtp_code(int otp_code) {
+        this.otp_code = otp_code;
     }
 
     public int getId() {
