@@ -15,4 +15,9 @@ public class UserService implements IUserService{
     public User getUserByEmailAndPassword(String email, String password) {
         return new UserRepo().findUserByEmailAndPassword(email, password);
     }
+
+    @Override
+    public void addUser(User user) {
+
+    }
 }
