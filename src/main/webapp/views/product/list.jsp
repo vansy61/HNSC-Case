@@ -64,7 +64,7 @@
 
                             <td>${product.costPrice}</td>
                             <td>${product.quantity}</td>
-                            <td>${product.quantity}</td>
+                            <td>${product.category.name}</td>
                             <td>
                                 <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">
                                     <i class="fa-solid fa-trash"></i>
