@@ -156,4 +156,31 @@ public class ProductRepo implements IProductRepo {
 
         return products;
     }
+
+    @Override
+    public List<Product> getProductByCategoryId(int categoryId) {
+        Connection connection = new DBConnect().getConnection();
+        String sql = "select * from products where category_id = ?";
+        List<Product> products = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setQuantity(rs.getInt("quantity"));
+                products.add(product);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
 }

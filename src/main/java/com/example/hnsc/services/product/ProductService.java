@@ -69,4 +69,9 @@ public class ProductService implements IProductService{
         return productRepo.searchProductByName(keyword, limit);
     }
 
+    @Override
+    public List<Product> getProductByCategoryId(int categoryId) {
+        return productRepo.getProductByCategoryId(categoryId);
+    }
+
 }
