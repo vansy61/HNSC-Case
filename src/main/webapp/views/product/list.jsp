@@ -46,6 +46,7 @@
                     <th>Ảnh</th>
                     <th>Giá gốc</th>
                     <th>Số lượng</th>
+                    <th>Phân loại</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -59,6 +60,7 @@
                         <td>${product.description}</td>
                         <td>${product.avatar}</td>
                         <td>${product.costPrice}</td>
+                        <td>${product.quantity}</td>
                         <td>${product.quantity}</td>
                         <td>
                             <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">Xoá</a>

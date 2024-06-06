@@ -45,10 +45,10 @@
                         <td>${category.description}</td>
                         <td>
 
-                            <a href="/admin/categories/delete?id=${catagory.id}" class="btn btn-sm btn-outline-danger" >
+                            <a href="/admin/categories/delete?id=${category.id}" class="btn btn-sm btn-outline-danger" >
                                 <i class="fa-solid fa-trash"></i> Xoá
                             </a>
-                            <a href="" class="btn btn-sm btn-outline-primary ms-1">
+                            <a href="/admin/categories/update?id=${category.id}" class="btn btn-sm btn-outline-primary ms-1">
                                 <i class="fa-solid fa-pen-to-square"></i>Sửa
                             </a>
 

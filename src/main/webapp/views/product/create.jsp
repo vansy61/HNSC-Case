@@ -46,6 +46,12 @@
                         <input type="text" class="form-control" id="quantity" placeholder="Nhập số lượng mới" name="quantity">
                         <label for="quantity" class="form-label">Nhập số lượng mới</label>
                     </div>
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
                     <div class="d-grid gap-2 mt-5">
                             <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                     </div>

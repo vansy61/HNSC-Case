@@ -7,7 +7,8 @@ import java.sql.SQLException;
 public class DBConnect {
     private static String dbURL = "jdbc:mysql://localhost:3306/minimart?useSSL=false";
     private static String dbUser = "root";
-    private static String dbPassword = "12345678";
+
+    private static String dbPassword = "rambolun190";
 
 
     public Connection getConnection() {
