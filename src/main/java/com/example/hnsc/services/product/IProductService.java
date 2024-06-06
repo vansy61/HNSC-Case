@@ -12,4 +12,5 @@ public interface IProductService {
     void update(Product product);
     List<Product> searchProductByName(String keyword);
     List<Product> searchProductByName(String keyword, int limit);
+    List<Product> getProductByCategoryId(int categoryId);
 }
