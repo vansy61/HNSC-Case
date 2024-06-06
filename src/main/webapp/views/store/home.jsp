@@ -32,7 +32,7 @@
     <div class="mt-5">
     <div class="row">
         <c:forEach items="${categories}" var="category">
-            <div class="col-4">
+            <div class="col-4 mb-2">
                 <a href="/store/categories?id=${category.id}" class="text-dark text-decoration-none shadow-sm bg-white rounded-2 p-3 d-flex align-items-center">
                     <div>
                         <img src="${category.avatar}" class="rounded-circle object-fit-cover" style="width: 80px; height: 80px;">
