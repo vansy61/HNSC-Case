@@ -29,14 +29,31 @@
             </div>
         </div>
     </div>
-    <div class="mt-5 bg-white">
-        <div class="px-3 py-2">
-            <h4 class="mb-0">Sản phẩm khuyến mãi</h4>
+    <div class="mt-5">
+    <div class="row">
+        <c:forEach items="${categories}" var="category">
+            <div class="col-4">
+                <a href="/store/categories?id=${category.id}" class="text-dark text-decoration-none shadow-sm bg-white rounded-2 p-3 d-flex align-items-center">
+                    <div>
+                        <img src="${category.avatar}" class="rounded-circle object-fit-cover" style="width: 80px; height: 80px;">
+                    </div>
+                    <div class="ms-2">
+                        <h6>${category.name}</h6>
+                        <p class="mb-0"><small>${category.description}</small></p>
+                    </div>
+                </a>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+    <div class="mt-5">
+        <div class="p-3 rounded bg-white mb-2">
+            <h4 class="mb-0">Sản phẩm mới</h4>
         </div>
         <div>
             <div class="row">
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-lg">
+                <div class="col-3 mb-3">
+                    <div class="card border-0 shadow-sm">
                         <img src="https://iwater.vn/Image/Picture/Bia/Heineken-bac-lon-cao-330ml.png"
                              class="card-img-top"
                              alt="...">
@@ -54,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col-3 mb-3">
                     <div class="card border-0 shadow-sm">
                         <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
                              alt="...">
@@ -72,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col-3 mb-3">
                     <div class="card border-0 shadow-sm">
                         <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
                              alt="...">
@@ -90,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mb-3">
+                <div class="col-3 mb-3">
                     <div class="card border-0 shadow-sm">
                         <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
                              alt="...">
@@ -98,119 +115,6 @@
                             <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
                             <div class="d-flex align-items-end">
                                 <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12"></div>
-
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Bia Heineken Silver 330ML</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://iwater.vn/Image/Picture/Bia/Heineken-0-do-lon-330ml.png" class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Nhìn là biết ken bạc</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">68.000 đ</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://hcm.fstorage.vn/images/2022/162428247425810313110-g1-xyc-xoch-hai-san-lc-food-gui-500g-og.jpg"
-                             class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Snack Lay's vị sườn nướng BBQ Brazil 95g</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">21.600 ₫</p>
-                                <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
-                            </div>
-                            <div class="d-grid mt-4">
-                                <a href="#" class="btn btn-outline-primary">
-                                    <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="card border-0 shadow-sm">
-                        <img src="https://hcm.fstorage.vn/images/2024/05/rojukiss-20240524044934.png"
-                             class="card-img-top"
-                             alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title mb-1">Mặt nạ Rojukiss giúp giảm lỗ chân lông to 25ml</h6>
-                            <div class="d-flex align-items-end">
-                                <p class="mb-0 me-3 fs-5 fw-bold text-primary">39.000 ₫</p>
                                 <p class="mb-0 text-decoration-line-through"><small>100.000 đ</small></p>
                             </div>
                             <div class="d-grid mt-4">
@@ -224,31 +128,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-5 bg-white">
-        <div class="p-3">
-            <div class="row">
-                <c:forEach items="${categories}" var="category">
-                    <div class="col-4">
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="..." class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        </div>
 
-    </div>
 </div>
 <%@include file="/giao-dien/cua-hang/shared/footer.jsp" %>
 

@@ -29,13 +29,16 @@
                     </div>
 
                     <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
-                        <label for="avatar" class="form-label">Ảnh</label>
-
-                    </div>
-                    <div class="mb-3 form-floating">
                         <input type="text" class="form-control" id="description" placeholder="Mô tả" name="description" value="${category.description}">
                         <label for="description" class="form-label">Mô tả</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="imageInput">Upload</label>
+                        <input type="file" class="form-control" id="imageInput">
+                    </div>
+                    <div id="previewContainer">
+                        <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
+                        <img id="imagePreview" src="${category.avatar}" alt="Image Preview">
                     </div>
                     <div class="d-grid gap-2 mt-5">
                         <button type="submit" class="btn btn-primary btn-lg" >Lưu</button>
@@ -45,5 +48,7 @@
         </div>
     </div>
 </div>
+<%@include file="/views/shared/footer.jsp" %>
+
 </body>
 </html>

@@ -18,6 +18,9 @@
                     <a class="nav-link active fw-bold" aria-current="page" href="/">Trang chủ</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link fw-bold" href="/store/products">Tất cả sản phẩm</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link fw-bold" href="/login">Đăng nhập</a>
                 </li>
                 <li class="nav-item">
@@ -30,9 +33,9 @@
                 <button type="button" class="btn btn-primary position-relative ms-2 ">
                     <i class="fa-solid fa-cart-shopping "></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    99+
-    <span class="visually-hidden">unread messages</span>
-  </span>
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
                 </button>
             </form>
         </div>
