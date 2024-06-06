@@ -15,7 +15,7 @@ public class ProductRepo implements IProductRepo {
     public List<Product> selectAll() throws SQLException {
         List<Product> products = new ArrayList<>();
         Connection connection = new DBConnect().getConnection();
-        String sql = "select * from products";
+        String sql = "select a.* , b.name as \"category_name\" from products a join categories b on a.category_id = b.id;";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
@@ -36,7 +36,7 @@ public class ProductRepo implements IProductRepo {
     @Override
     public void insert(Product product) throws SQLException {
         Connection connection = new DBConnect().getConnection();
-        String sql = "insert into products(sku,name,price,description, avatar, cost_price, quantity) value(?,?,?,?,?,?,?)";
+        String sql = "insert into products(sku,name,price,description, avatar, cost_price, quantity, category_id) value(?,?,?,?,?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, product.getSku());
         ps.setString(2, product.getName());
@@ -45,7 +45,9 @@ public class ProductRepo implements IProductRepo {
         ps.setString(5, product.getAvatar());
         ps.setDouble(6, product.getCostPrice());
         ps.setInt(7, product.getQuantity());
+        ps.setInt(8, product.getCategoryId());
         ps.executeUpdate();
+
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.example.hnsc.controllers;
 
+import com.example.hnsc.models.Category;
 import com.example.hnsc.models.Product;
+import com.example.hnsc.services.category.CategoryService;
 import com.example.hnsc.services.product.ProductService;
 
 import javax.servlet.RequestDispatcher;
@@ -54,13 +56,15 @@ public class ProductServlet extends HttpServlet {
 
 
     private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         List<Product> products = productService.selectAll();
         req.setAttribute("products", products);
         req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
     }
 
     private void showFormCreateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CategoryService categoryService = new CategoryService();
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories", categories);
         req.getRequestDispatcher("/views/product/create.jsp").forward(req, resp);
     }
 
@@ -70,9 +74,10 @@ public class ProductServlet extends HttpServlet {
         double price = Double.parseDouble(req.getParameter("price"));
         String description = req.getParameter("description");
         String avatar = req.getParameter("avatar");
+        int category_id = Integer.parseInt(req.getParameter("category_id"));
         double cost_price = Double.parseDouble(req.getParameter("cost_price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
-        Product product = new Product(sku, name, price, description, avatar, cost_price, quantity);
+        Product product = new Product(sku, name, price, description, avatar, cost_price, quantity,category_id);
         productService.insert(product);
         resp.sendRedirect("/admin/products/list");
     }
