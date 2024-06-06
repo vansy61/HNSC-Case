@@ -1,25 +1,26 @@
 package com.example.hnsc.models;
 
+import java.util.List;
+
 public class Order {
     private int id;
     private String number;
     private double total;
-    private int address_id;
+    private OrderAddress orderAddress;
+    private List<OrderItem> orderItems;
 
-    public Order() {
-    }
-
-    public Order(int id, String number, double total, int address_id) {
+    public Order(int id, String number, double total, OrderAddress orderAddress) {
         this.id = id;
         this.number = number;
         this.total = total;
-        this.address_id = address_id;
+        this.orderAddress = orderAddress;
     }
 
-    public Order(String number, double total, int address_id) {
+    public Order(String number, double total, OrderAddress orderAddress, List<OrderItem> orderItems) {
         this.number = number;
         this.total = total;
-        this.address_id = address_id;
+        this.orderAddress = orderAddress;
+        this.orderItems = orderItems;
     }
 
     public int getId() {
@@ -46,11 +47,19 @@ public class Order {
         this.total = total;
     }
 
-    public int getAddress_id() {
-        return address_id;
+    public OrderAddress getOrderAddress() {
+        return orderAddress;
     }
 
-    public void setAddress_id(int address_id) {
-        this.address_id = address_id;
+    public void setOrderAddress(OrderAddress orderAddress) {
+        this.orderAddress = orderAddress;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 }

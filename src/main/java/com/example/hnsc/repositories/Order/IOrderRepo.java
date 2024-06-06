@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface IOrderRepo {
     List<Order> selectAll() throws SQLException;
+    String insertOrder() throws SQLException;
 
 }
