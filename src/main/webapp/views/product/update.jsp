@@ -35,17 +35,20 @@
                         <label for="description" class="form-label">Nhập mô tả mới</label>
                     </div>
                     <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" value="${product.avatar}" id="avatar" placeholder="Thêm ảnh mới" name="avatar">
-                        <label for="avatar" class="form-label">Thêm ảnh mới</label>
-
-                    </div>
-                    <div class="mb-3 form-floating">
                         <input type="text" class="form-control" value="${product.costPrice}" id="cost_price" placeholder="Nhập giá gốc mới" name="cost_price">
                         <label for="cost_price" class="form-label">Nhập giá gốc</label>
                     </div>
                     <div class="mb-3 form-floating">
                         <input type="text" class="form-control" value="${product.quantity}" id="quantity" placeholder="Nhập số lượng mới" name="quantity">
                         <label for="quantity" class="form-label">Nhập số lượng mới</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="imageInput">Upload</label>
+                        <input type="file" class="form-control" id="imageInput">
+                    </div>
+                    <div id="previewContainer">
+                        <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
+                        <img id="imagePreview" src="${category.avatar}" alt="Image Preview">
                     </div>
                     <div class="d-grid gap-2 mt-5">
                         <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
@@ -55,5 +58,7 @@
         </div>
     </div>
 </div>
+<%@include file="/views/shared/footer.jsp" %>
+
 </body>
 </html>

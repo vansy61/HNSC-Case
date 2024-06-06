@@ -29,7 +29,7 @@
             </ul>
             <form class="d-flex pe-3">
                 <input class="form-control me-2" type="search" placeholder="Tìm Kiếm" aria-label="Search">
-                <button class="btn btn-outline-success fw-bold" type="submit">Search</button>
+                <button class="btn btn-outline-success fw-bold" type="submit">Tìm kiếm</button>
                 <button type="button" class="btn btn-primary position-relative ms-2 ">
                     <i class="fa-solid fa-cart-shopping "></i>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
