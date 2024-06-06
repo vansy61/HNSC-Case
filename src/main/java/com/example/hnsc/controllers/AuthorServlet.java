@@ -13,14 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 @WebServlet(name = "AuthorServlet", urlPatterns = {"/login","/logout"})
 public class AuthorServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String url = req.getRequestURI();
+
         HttpSession session = req.getSession();
-        if (session.getAttribute("user_id") != null) {
+        if (session.getAttribute("user_id") != null && Objects.equals(url, "/login")) {
             resp.sendRedirect("/admin/categories/list");
             return;
         }
@@ -30,9 +33,10 @@ public class AuthorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getRequestURI();
-
         if (url.equals("/login")) {
             showFormLogin(req, resp);
+        }else if (url.equals("/logout")) {
+            performLogout(req,resp);
         }
     }
 
@@ -43,8 +47,6 @@ public class AuthorServlet extends HttpServlet {
 
         if (url.equals("/login")) {
             checkLogin(req, resp);
-        } else if (url.equals("/logout")) {
-            performLogout(req,resp);
         }
 
 
