@@ -46,7 +46,6 @@
                         <c:forEach var="item" items="${categories}">
                             <option value="${item.id}">${item.name}</option>
                         </c:forEach>
-
                     </select>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>

@@ -1,6 +1,7 @@
 package com.example.hnsc.repositories.product;
 
 import com.example.hnsc.database.DBConnect;
+import com.example.hnsc.models.Category;
 import com.example.hnsc.models.Product;
 
 import java.sql.Connection;
@@ -29,6 +30,9 @@ public class ProductRepo implements IProductRepo {
             product.setAvatar(rs.getString("avatar"));
             product.setCostPrice(rs.getDouble("cost_price"));
             product.setQuantity(rs.getInt("quantity"));
+            Category category = new Category();
+            category.setName(rs.getString("category_name"));
+            product.setCategory(category);
             products.add(product);
         }
         return products;
@@ -55,7 +59,7 @@ public class ProductRepo implements IProductRepo {
     public Product selectProduct(int id) throws SQLException {
         Product product = null;
         Connection connection = new DBConnect().getConnection();
-        String sql = "select * from products where id = ?;";
+        String sql = "select p.*, c.id as category_id from products p join categories c on p.category_id = c.id where p.id = ?;";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
@@ -67,7 +71,8 @@ public class ProductRepo implements IProductRepo {
             String avatar = rs.getString("avatar");
             double cost_price = Double.parseDouble(rs.getString("cost_price"));
             int quantity = Integer.parseInt(rs.getString("quantity"));
-            product = new Product(id, sku, name, price, description, avatar, cost_price, quantity);
+            int categoryId = rs.getInt("category_id");
+            product = new Product(id, sku, name, price, description, avatar, cost_price, quantity, categoryId);
         }
         return product;
     }

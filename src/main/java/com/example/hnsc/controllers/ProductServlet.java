@@ -94,6 +94,11 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         Product product = productService.selectProduct(id);
         req.setAttribute("product", product);
+
+        CategoryService categoryService = new CategoryService();
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories", categories);
+
         req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
     }
 

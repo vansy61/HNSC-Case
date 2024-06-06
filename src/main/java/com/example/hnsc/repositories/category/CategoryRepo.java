@@ -25,6 +25,7 @@ public class CategoryRepo implements ICategoryRepo {
             category.setName(rs.getString("name"));
             category.setAvatar(rs.getString("avatar"));
             category.setDescription(rs.getString("description"));
+
             categories.add(category);
         }
         return categories;

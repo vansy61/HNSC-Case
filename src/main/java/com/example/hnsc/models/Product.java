@@ -10,6 +10,7 @@ public class Product {
     private double costPrice;
     private int quantity;
     private int category_id;
+    private Category category;
 
     public Product() {
     }
@@ -114,5 +115,13 @@ public class Product {
 
     public int getCategoryId() {
         return category_id;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

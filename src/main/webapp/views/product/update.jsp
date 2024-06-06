@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -42,6 +43,7 @@
                         <input type="text" class="form-control" value="${product.quantity}" id="quantity" placeholder="Nhập số lượng mới" name="quantity">
                         <label for="quantity" class="form-label">Nhập số lượng mới</label>
                     </div>
+
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>
                         <input type="file" class="form-control" id="imageInput">
@@ -50,6 +52,17 @@
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
                         <img id="imagePreview" src="${category.avatar}" alt="Image Preview">
                     </div>
+
+                    <select class="form-select form-select-lg mb-3" name="category_id">
+                        <c:forEach var="item" items="${categories}">
+                            <c:if test="${product.categoryId == item.id}">
+                                <option selected value="${item.name}">${item.name}</option>
+                            </c:if>
+                            <c:if test="${product.categoryId != item.id}">
+                                <option value="${item.name}">${item.name}</option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
                     <div class="d-grid gap-2 mt-5">
                         <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                     </div>
