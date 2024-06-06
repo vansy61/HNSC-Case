@@ -38,12 +38,11 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>Số thứ tự</th>
+                        <th>Ảnh</th>
                         <th>Sku</th>
                         <th>Sản phẩm</th>
                         <th>Giá</th>
                         <th>Mô tả</th>
-                        <th>Ảnh</th>
                         <th>Giá gốc</th>
                         <th>Số lượng</th>
                         <th>Phân loại</th>
@@ -56,7 +55,6 @@
                             <td>
                                 <img src="${product.avatar}" class="img-fluid" style="width: 40px;">
                             </td>
-                            <td>${status.count}</td>
                             <td>${product.sku}</td>
                             <td>${product.name}</td>
                             <td>${product.price}</td>
