@@ -52,15 +52,9 @@
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar" value="${category.avatar}">
                         <img id="imagePreview" src="${product.avatar}" class="img-fluid" alt="Image Preview">
                     </div>
-
                     <select class="form-select form-select-lg mb-3" name="category_id">
                         <c:forEach var="item" items="${categories}">
-                            <c:if test="${product.categoryId == item.id}">
-                                <option selected value="${item.name}">${item.name}</option>
-                            </c:if>
-                            <c:if test="${product.categoryId != item.id}">
-                                <option value="${item.name}">${item.name}</option>
-                            </c:if>
+                            <option ${product.categoryId == item.id ? "selected" : ""} value="${item.id}">${item.name}</option>
                         </c:forEach>
                     </select>
                     <div class="d-grid gap-2 mt-5">

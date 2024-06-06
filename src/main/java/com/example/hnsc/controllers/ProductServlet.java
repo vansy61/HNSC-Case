@@ -111,8 +111,11 @@ public class ProductServlet extends HttpServlet {
         String avatar = req.getParameter("avatar");
         double cost_price = Double.parseDouble(req.getParameter("cost_price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
-        Product product = new Product(id, sku, name, price, description, avatar, cost_price, quantity);
+        int category_id = Integer.parseInt(req.getParameter("category_id"));
+        Product product = new Product(id, sku, name, price, description, avatar, cost_price, quantity, category_id);
         productService.update(product);
+
+        Category category = new Category();
         resp.sendRedirect("/admin/products/list");
     }
 

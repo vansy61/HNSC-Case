@@ -89,7 +89,7 @@ public class ProductRepo implements IProductRepo {
     @Override
     public void update(Product product) throws SQLException {
         Connection connection = new DBConnect().getConnection();
-        String sql = "update products set sku = ?, name = ?, price = ?, description = ?, avatar = ?, cost_price = ?, quantity = ? where id = ?";
+        String sql = "update products set sku = ?, name = ?, price = ?, description = ?, avatar = ?, cost_price = ?, quantity = ?, category_id = ? where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, product.getSku());
         ps.setString(2, product.getName());
@@ -98,7 +98,8 @@ public class ProductRepo implements IProductRepo {
         ps.setString(5, product.getAvatar());
         ps.setDouble(6, product.getCostPrice());
         ps.setInt(7, product.getQuantity());
-        ps.setInt(8, product.getId());
+        ps.setInt(8, product.getCategoryId());
+        ps.setInt(9, product.getId());
         ps.executeUpdate();
     }
 
