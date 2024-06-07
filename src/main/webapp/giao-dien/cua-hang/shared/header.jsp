@@ -18,7 +18,7 @@
                     <a class="nav-link active fw-bold" aria-current="page" href="/">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold" href="/store/products">Tất cả sản phẩm</a>
+                    <a class="nav-link fw-bold" href="/store/products/list">Tất cả sản phẩm</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fw-bold" href="/login">Đăng nhập</a>

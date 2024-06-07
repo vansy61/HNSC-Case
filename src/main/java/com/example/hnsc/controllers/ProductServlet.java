@@ -5,7 +5,6 @@ import com.example.hnsc.models.Product;
 import com.example.hnsc.services.category.CategoryService;
 import com.example.hnsc.services.product.ProductService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

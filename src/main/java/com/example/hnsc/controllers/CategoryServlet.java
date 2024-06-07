@@ -112,10 +112,6 @@ public class CategoryServlet extends HttpServlet {
     }
 
 
-
-
-
-
     private void showFormCreateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/views/category/create.jsp").forward(req, resp);
     }
