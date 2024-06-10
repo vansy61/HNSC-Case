@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HomeController", urlPatterns = "/store")
+@WebServlet(name = "HomeController", urlPatterns = {"/store", "/store/thank-you"})
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException, java.io.IOException {
@@ -22,10 +22,17 @@ public class HomeController extends HttpServlet {
             case "/store":
                 showHome(req, resp);
                 break;
+            case "/store/thank-you":
+                showThankYou(req, resp);
+                break;
             default:
                 resp.sendError(404);
                 break;
         }
+    }
+
+    private void showThankYou(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/views/store/thank-you.jsp").forward(req, resp);
     }
 
     private void showHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

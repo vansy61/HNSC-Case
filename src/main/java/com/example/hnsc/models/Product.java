@@ -1,5 +1,7 @@
 package com.example.hnsc.models;
 
+import java.util.HashMap;
+
 public class Product {
     private int id;
     private String sku;
@@ -11,6 +13,7 @@ public class Product {
     private int quantity;
     private int category_id;
     private Category category;
+    private HashMap<String, String> errors = new HashMap<>();
 
     public Product() {
     }
@@ -47,6 +50,14 @@ public class Product {
         this.avatar = avatar;
         this.costPrice = costPrice;
         this.quantity = quantity;
+    }
+
+    public HashMap<String, String> getErrors() {
+        return errors;
+    }
+
+    public void setError(String key, String message) {
+        errors.put(key, message);
     }
 
     public int getId() {
@@ -123,5 +134,22 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", sku='" + sku + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", costPrice=" + costPrice +
+                ", quantity=" + quantity +
+                ", category_id=" + category_id +
+                ", category=" + category +
+                ", errors=" + errors +
+                '}';
     }
 }

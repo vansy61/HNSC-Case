@@ -6,6 +6,7 @@ import com.example.hnsc.repositories.category.ICategoryRepo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CategoryService implements ICategoryService {
@@ -20,29 +21,33 @@ public class CategoryService implements ICategoryService {
         }
     }
 
-    public List<String> validate(Category category) {
-        List<String> err = new ArrayList<>();
+    public void validate(Category category) {
         if (category.getName().isEmpty()) {
-            err.add("ko dc de trong ten");
+            category.addError("name", "Tên không được để trống");
         }
-        return err;
     }
 
     public void insert(Category category) {
-        categoryRepo.insertA(category);
+        validate(category);
+        if (category.getErrors().isEmpty()) {
+            categoryRepo.insertA(category);
+        }
     }
 
     public Category findById(int id) {
         return categoryRepo.findById(id);
     }
 
-    public void deleteCategory(int id) {
+    public void deleteCategory(int id) throws SQLException {
         categoryRepo.deleteCategory(id);
     }
 
     @Override
     public void updateCategory(Category category) {
-        categoryRepo.updateCategory(category);
+        validate(category);
+        if (category.getErrors().isEmpty()) {
+            categoryRepo.updateCategory(category);
+        }
     }
 
 

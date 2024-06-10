@@ -13,6 +13,17 @@
 <body class="bg-body-tertiary">
 <%@include file="/views/shared/menu.jsp" %>
 <div class="container mt-5 ">
+    <c:if test="${error != null}">
+        <div class="alert alert-danger" role="alert">
+                ${error}
+        </div>
+    </c:if>
+
+    <c:if test="${noti != null}">
+        <div class="alert alert-success" role="alert">
+                ${noti}
+        </div>
+    </c:if>
     <div>
         <div class="d-flex justify-content-between p-3 shadow-sm bg-white mb-3 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả sản phẩm</h6>
@@ -26,9 +37,9 @@
 
                     <div class="col-5">
                         <form action="/admin/products/search" class="d-flex">
-                            <input class="form-control form-control-sm" type="text" name="keyword" placeholder="Tìm kiếm theo tên sản phẩm"
-                                   aria-label=".form-control-sm example">
-                            <button class="btn btn-outline-primary ms-3" >Tìm</button>
+                            <input class="form-control form-control-sm" type="text" name="keyword"
+                                   placeholder="Tìm kiếm theo tên sản phẩm" value="${keyword}">
+                            <button class="btn btn-outline-primary ms-3">Tìm</button>
                         </form>
                     </div>
 
@@ -41,9 +52,9 @@
                         <th>Ảnh</th>
                         <th>Sku</th>
                         <th>Sản phẩm</th>
+                        <th>Giá gốc</th>
                         <th>Giá</th>
                         <th>Mô tả</th>
-                        <th>Giá gốc</th>
                         <th>Số lượng</th>
                         <th>Phân loại</th>
                         <th></th>
@@ -57,17 +68,18 @@
                             </td>
                             <td>${product.sku}</td>
                             <td>${product.name}</td>
+                            <td>${product.costPrice}</td>
                             <td>${product.price}</td>
                             <td>${product.description}</td>
-                            <td>${product.costPrice}</td>
                             <td>${product.quantity}</td>
                             <td>${product.category.name}</td>
-                            <td>
+                            <td class="text-nowrap">
                                 <a href="/admin/products/delete?id=${product.id}" class="btn btn-sm btn-outline-danger">
                                     <i class="fa-solid fa-trash"></i>
                                     Xoá
                                 </a>
-                                <a href="/admin/products/update?id=${product.id}" class="btn btn-sm btn-outline-primary ms-1">
+                                <a href="/admin/products/update?id=${product.id}"
+                                   class="btn btn-sm btn-outline-primary ms-1">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                     Sửa
                                 </a>
@@ -81,5 +93,7 @@
 
     </div>
 </div>
+<%@include file="/views/shared/footer.jsp" %>
+
 </body>
 </html>

@@ -14,8 +14,8 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
-            <c:if test="${err!=null}" >
-                <c:forEach var="err" items="${err}" >
+            <c:if test="${err!=null}">
+                <c:forEach var="err" items="${err}">
                     <p>${err}</p>
                 </c:forEach>
             </c:if>
@@ -28,23 +28,17 @@
                     </div>
                     <div class="mb-3 form-floating">
                         <input type="text" class="form-control" id="email" placeholder="email" name="email">
-                        <label for="description" class="form-label">email</label>
+                        <label class="form-label">email</label>
                     </div>
 
                     <div class="mb-3 form-floating">
                         <input type="text" class="form-control" id="password" placeholder="password" name="password">
-                        <label for="description" class="form-label">password</label>
-                    </div>
-                    <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" id="otp_code" placeholder="otp_code" name="otp_code">
-                        <label for="otp_code" class="form-label">otp_code</label>
+                        <label class="form-label">password</label>
                     </div>
                     <div class="d-grid gap-2 mt-5">
-                        <button type="submit" class="btn btn-primary btn-lg" >Lưu</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Lưu</button>
                     </div>
                 </form>
-
-
 
 
             </div>

@@ -26,23 +26,6 @@ public class OrderServlet extends HttpServlet {
             case "/list":
                 showAll(req, resp);
                 break;
-            case "/create":
-                createOrder(req, resp);
-                break;
-            case "/update":
-                showFormUpdate(req, resp);
-                break;
-        }
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url = req.getPathInfo();
-        switch (url) {
-            case "update":
-                updateAddressInOrder(req, resp);
-                break;
         }
     }
 
@@ -53,21 +36,4 @@ public class OrderServlet extends HttpServlet {
         req.getRequestDispatcher("/views/order/list.jsp").forward(req, resp);
     }
 
-    private void createOrder(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String number = orderService.insertOrder();
-        Order order = orderService.findOrderByNumber(number);
-        resp.sendRedirect("/admin/orders/update?id=" + order.getId());
-    }
-
-    private void showFormUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        Order order = orderService.findOrderById(id);
-        req.setAttribute("order", order);
-        req.getRequestDispatcher("/views/order/update.jsp").forward(req, resp);
-
-    }
-
-    private void updateAddressInOrder(HttpServletRequest req, HttpServletResponse resp) {
-
-    }
 }

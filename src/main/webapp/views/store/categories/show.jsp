@@ -16,14 +16,15 @@
                     <img src="${product.avatar}"
                          class="card-img-top">
                     <div class="card-body">
-                        <h6 class="card-title mb-1"><a href="/store/products/show?id=${product.id}" class="text-dark text-decoration-none">${product.name}</a></h6>
+                        <h6 class="card-title mb-1"><a href="/store/products/show?id=${product.id}"
+                                                       class="text-dark text-decoration-none">${product.name}</a></h6>
                         <div class="d-flex align-items-end">
                             <p class="mb-0 me-3 fs-5 fw-bold text-primary">${product.price}</p>
                             <p class="mb-0 text-decoration-line-through"><small>${product.costPrice}</small></p>
                         </div>
                         <div class="d-grid mt-4">
-                            <a href="/store/add_cart?product_id=?${product.id}" class="btn btn-outline-primary">
-                                <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
+                            <a href="/store/cart/add?product_id=${product.id}" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-cart-plus me-2"></i>Mua ngay
                             </a>
                         </div>
                     </div>

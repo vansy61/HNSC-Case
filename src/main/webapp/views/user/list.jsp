@@ -22,19 +22,6 @@
             </div>
         </div>
         <div class="p-3 bg-white mb-2 shadow-sm">
-            <div class="mb-3">
-                <div class="row justify-content-end">
-
-                    <div class="col-5">
-                        <form action="/admin/products/search" class="d-flex">
-                            <input class="form-control form-control-sm" type="text" name="keyword" placeholder="Tìm kiếm nhân sự "
-                                   aria-label=".form-control-sm example">
-                            <button class="btn btn-outline-primary ms-3" >Tìm</button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
             <div>
                 <table class="table table-bordered">
                     <thead>
@@ -43,7 +30,6 @@
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Otp_code</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,13 +39,13 @@
                             <td>${userList.name}</td>
                             <td>${userList.email}</td>
                             <td>${userList.password}</td>
-                            <td>${userList.otp_code}</td>
                             <td>
                                 <a href="/admin/users/delete?id=${userList.id}" class="btn btn-sm btn-outline-danger">
                                     <i class="fa-solid fa-trash"></i>
                                     Xoá
                                 </a>
-                                <a href="/admin/users/update?id=${userList.id}" class="btn btn-sm btn-outline-primary ms-1">
+                                <a href="/admin/users/update?id=${userList.id}"
+                                   class="btn btn-sm btn-outline-primary ms-1">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                     Sửa
                                 </a>
@@ -73,5 +59,7 @@
 
     </div>
 </div>
+<%@include file="/views/shared/footer.jsp" %>
+
 </body>
 </html>

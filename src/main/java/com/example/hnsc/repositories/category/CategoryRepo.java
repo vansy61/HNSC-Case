@@ -39,7 +39,7 @@ public class CategoryRepo implements ICategoryRepo {
             preparedStatement.setString(1, category.getName());
             preparedStatement.setString(2, category.getAvatar());
             preparedStatement.setString(3, category.getDescription());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -91,16 +91,12 @@ public class CategoryRepo implements ICategoryRepo {
     }
 
 
-    public void deleteCategory(int id) {
-        try {
-            Connection connection = new DBConnect().getConnection();
-            String sql = "delete From categories where id = ?;";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.execute();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public void deleteCategory(int id) throws SQLException {
+        Connection connection = new DBConnect().getConnection();
+        String sql = "delete From categories where id = ?;";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
     }
 
 

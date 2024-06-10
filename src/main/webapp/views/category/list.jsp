@@ -16,6 +16,17 @@
 
 <div class="container mt-5 ">
     <div>
+        <c:if test="${error != null}">
+            <div class="alert alert-danger" role="alert">
+                    ${error}
+            </div>
+        </c:if>
+
+        <c:if test="${noti != null}">
+            <div class="alert alert-success" role="alert">
+                    ${noti}
+            </div>
+        </c:if>
         <div class="d-flex justify-content-between bg-white p-3 shadow-sm align-items-center mb-3">
             <h6 class="text-decoration-none text-secondary mb-0 ">Phân loại sản phẩm</h6>
             <div>
@@ -25,13 +36,13 @@
         <div class="p-3 bg-white shadow-sm">
             <table class="table table-bordered align-middle">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Ảnh</th>
-                        <th>Tên</th>
-                        <th>Mô tả</th>
-                        <th>Hành động</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Ảnh</th>
+                    <th>Tên</th>
+                    <th>Mô tả</th>
+                    <th>Hành động</th>
+                </tr>
                 </thead>
                 <tbody>
                 <c:forEach var="category" items="${categories}" varStatus="status">
@@ -45,10 +56,11 @@
                         <td>${category.description}</td>
                         <td>
 
-                            <a href="/admin/categories/update?id=${category.id}" class="btn btn-sm btn-outline-primary ms-1">
+                            <a href="/admin/categories/update?id=${category.id}"
+                               class="btn btn-sm btn-outline-primary ms-1">
                                 <i class="fa-solid fa-pen-to-square"></i>Sửa
                             </a>
-                            <a href="/admin/categories/delete?id=${category.id}" class="btn btn-sm btn-outline-danger" >
+                            <a href="/admin/categories/delete?id=${category.id}" class="btn btn-sm btn-outline-danger">
                                 <i class="fa-solid fa-trash"></i> Xoá
                             </a>
 
@@ -60,5 +72,7 @@
         </div>
     </div>
 </div>
+<%@include file="/views/shared/footer.jsp" %>
+
 </body>
 </html>

@@ -15,9 +15,13 @@ public interface IProductRepo {
     void delete(int id) throws SQLException;
 
     void update(Product product) throws SQLException;
+
     List<Product> searchProductByName(String keyword) throws SQLException;
+
     List<Product> searchProductByName(String keyword, int limit);
 
     List<Product> getProductByCategoryId(int categoryId);
+
+    Product findProductBySku(String sku) throws SQLException;
 }
 

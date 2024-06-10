@@ -8,8 +8,9 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     IProductRepo productRepo = new ProductRepo();
+
     @Override
     public List<Product> selectAll() {
         try {
@@ -21,8 +22,35 @@ public class ProductService implements IProductService{
 
     @Override
     public void insert(Product product) {
+        validate(product);
+        if (product.getErrors().isEmpty()) {
+            try {
+                productRepo.insert(product);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public void validate(Product product) {
+        if (product.getName().isEmpty()) {
+            product.setError("name", "Tên không được để trống");
+        }
+
+        if (product.getSku().isEmpty()) {
+            product.setError("sku", "Mã sản phẩm không được để trống");
+        }
+
+        Product findProductBySku = findProductBySku(product.getSku());
+        if (findProductBySku != null && findProductBySku.getId() != product.getId()) {
+            product.setError("sku", "Mã sản phẩm đã tồn tại");
+        }
+
+    }
+
+    public Product findProductBySku(String sku) {
         try {
-            productRepo.insert(product);
+            return productRepo.findProductBySku(sku);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -48,17 +76,20 @@ public class ProductService implements IProductService{
 
     @Override
     public void update(Product product) {
-        try {
-            productRepo.update(product);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        validate(product);
+        if (product.getErrors().isEmpty()) {
+            try {
+                productRepo.update(product);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
     @Override
     public List<Product> searchProductByName(String keyword) {
         try {
-           return productRepo.searchProductByName(keyword);
+            return productRepo.searchProductByName(keyword);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

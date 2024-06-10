@@ -61,13 +61,13 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showFormCreateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CategoryService categoryService = new CategoryService();
-        List<Category> categories = categoryService.selectAll();
-        req.setAttribute("categories", categories);
-        req.getRequestDispatcher("/views/product/create.jsp").forward(req, resp);
+        Product product = new Product();
+        req.setAttribute("product", product);
+        getAllCategories(req, resp);
+        req.getRequestDispatcher("/views/product/form.jsp").forward(req, resp);
     }
 
-    private void insertProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void insertProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String sku = req.getParameter("sku");
         String name = req.getParameter("name");
         double price = Double.parseDouble(req.getParameter("price"));
@@ -76,9 +76,17 @@ public class ProductServlet extends HttpServlet {
         int category_id = Integer.parseInt(req.getParameter("category_id"));
         double cost_price = Double.parseDouble(req.getParameter("cost_price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
-        Product product = new Product(sku, name, price, description, avatar, cost_price, quantity,category_id);
+        Product product = new Product(sku, name, price, description, avatar, cost_price, quantity, category_id);
         productService.insert(product);
-        resp.sendRedirect("/admin/products/list");
+
+        if (product.getErrors().isEmpty()) {
+            req.setAttribute("noti", "Thêm sản phẩm thành công!");
+            showList(req, resp);
+        } else {
+            getAllCategories(req, resp);
+            req.setAttribute("product", product);
+            req.getRequestDispatcher("/views/product/form.jsp").forward(req, resp);
+        }
     }
 
     private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -94,14 +102,11 @@ public class ProductServlet extends HttpServlet {
         Product product = productService.selectProduct(id);
         req.setAttribute("product", product);
 
-        CategoryService categoryService = new CategoryService();
-        List<Category> categories = categoryService.selectAll();
-        req.setAttribute("categories", categories);
-
-        req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
+        getAllCategories(req, resp);
+        req.getRequestDispatcher("/views/product/form.jsp").forward(req, resp);
     }
 
-    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int id = Integer.parseInt(req.getParameter("id"));
         String sku = req.getParameter("sku");
         String name = req.getParameter("name");
@@ -114,16 +119,28 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(id, sku, name, price, description, avatar, cost_price, quantity, category_id);
         productService.update(product);
 
-        Category category = new Category();
-        resp.sendRedirect("/admin/products/list");
+        if (product.getErrors().isEmpty()) {
+            req.setAttribute("noti", "Cập nhật sản phẩm thành công!");
+            showList(req, resp);
+        } else {
+            getAllCategories(req, resp);
+            req.setAttribute("product", product);
+            req.getRequestDispatcher("/views/product/form.jsp").forward(req, resp);
+        }
     }
 
     private void searchProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String keyword = req.getParameter("keyword");
         List<Product> products = productService.searchProductByName(keyword);
-        req.setAttribute("products",products);
-        req.getRequestDispatcher("/views/product/list.jsp").forward(req,resp);
+        req.setAttribute("products", products);
+        req.setAttribute("keyword", keyword);
+        req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
     }
 
 
+    private void getAllCategories(HttpServletRequest req, HttpServletResponse resp) {
+        CategoryService categoryService = new CategoryService();
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories", categories);
+    }
 }

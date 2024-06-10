@@ -110,7 +110,7 @@ public class ProductRepo implements IProductRepo {
         String sql = "select * from products where name like ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         System.out.println(keyword);
-        ps.setString(1, "%" + keyword +"%");
+        ps.setString(1, "%" + keyword + "%");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Product product = new Product();
@@ -135,7 +135,7 @@ public class ProductRepo implements IProductRepo {
         PreparedStatement ps;
         try {
             ps = connection.prepareStatement(sql);
-            ps.setString(1, "%" + keyword +"%");
+            ps.setString(1, "%" + keyword + "%");
             ps.setInt(2, limit);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -150,7 +150,7 @@ public class ProductRepo implements IProductRepo {
                 product.setQuantity(rs.getInt("quantity"));
                 products.add(product);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -178,9 +178,32 @@ public class ProductRepo implements IProductRepo {
                 product.setQuantity(rs.getInt("quantity"));
                 products.add(product);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return products;
+    }
+
+    @Override
+    public Product findProductBySku(String _sku) throws SQLException {
+        Product product = null;
+        Connection connection = new DBConnect().getConnection();
+        String sql = "select p.*, c.id as category_id from products p join categories c on p.category_id = c.id where p.sku = ?;";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, _sku);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            String sku = rs.getString("sku");
+            String name = rs.getString("name");
+            double price = Double.parseDouble(rs.getString("price"));
+            String description = rs.getString("description");
+            String avatar = rs.getString("avatar");
+            double cost_price = Double.parseDouble(rs.getString("cost_price"));
+            int quantity = Integer.parseInt(rs.getString("quantity"));
+            int categoryId = rs.getInt("category_id");
+            int id = rs.getInt("id");
+            product = new Product(id, sku, name, price, description, avatar, cost_price, quantity, categoryId);
+        }
+        return product;
     }
 }

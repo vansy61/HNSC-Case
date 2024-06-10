@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 @WebServlet(name = "CategoryServlet", urlPatterns = "/admin/categories/*")
 public class CategoryServlet extends HttpServlet {
     private CategoryService categoryService = new CategoryService();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -25,7 +28,7 @@ public class CategoryServlet extends HttpServlet {
                 insertCategory(req, resp);
                 break;
             case "/update":
-                updateCategory(req,resp);
+                updateCategory(req, resp);
                 break;
 
 
@@ -42,79 +45,77 @@ public class CategoryServlet extends HttpServlet {
                 showListCategory(req, resp);
                 break;
             case "/create":
-                showFormCreateCategory(req, resp);
+                showFormCreate(req, resp);
                 break;
             case "/delete":
                 deleteCategory(req, resp);
                 break;
             case "/update":
-                showFormUpdate(req,resp);
+                showFormUpdate(req, resp);
                 break;
 
         }
     }
+
     private void insertCategory(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String name = req.getParameter("name");
-        String avatar = req.getParameter("avatar");
-        String description = req.getParameter("description");
         Category category = new Category();
-        category.setName(name);
-        category.setAvatar(avatar);
-        category.setDescription(description);
-        List<String> err = categoryService.validate(category);
-        if (err.isEmpty()) {
-            categoryService.insert(category);
-            resp.sendRedirect("/admin/categories/list");
+        category.setName(req.getParameter("name"));
+        category.setAvatar(req.getParameter("avatar"));
+        category.setDescription(req.getParameter("description"));
+        categoryService.insert(category);
+        if (category.getErrors().isEmpty()) {
+            req.setAttribute("noti", "Thêm phân loại thành công!");
+            showListCategory(req, resp);
         } else {
-            req.setAttribute("err", err);
-            req.getRequestDispatcher("/views/category/create.jsp").forward(req, resp);
+            req.setAttribute("category", category);
+            req.getRequestDispatcher("/views/category/form.jsp").forward(req, resp);
         }
     }
-    private void updateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        String name =  req.getParameter("name");
-        String avatar = req.getParameter("avatar");
-        String description = req.getParameter("description");
+
+    private void showFormCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Category category = new Category();
-        category.setName(name);
-        category.setAvatar(avatar);
-        category.setDescription(description);
-        category.setId(id);
-        List<String> err = categoryService.validate(category);
-        if (err.isEmpty()) {
-            categoryService.updateCategory(category);
-            resp.sendRedirect("/admin/categories/list");
+        req.setAttribute("category", category);
+        req.getRequestDispatcher("/views/category/form.jsp").forward(req, resp);
+    }
+
+    private void updateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Category category = new Category();
+        category.setName(req.getParameter("name"));
+        category.setAvatar(req.getParameter("avatar"));
+        category.setDescription(req.getParameter("description"));
+        category.setId(Integer.parseInt(req.getParameter("id")));
+        categoryService.updateCategory(category);
+
+        if (category.getErrors().isEmpty()) {
+            req.setAttribute("noti", "Cập nhật phân loại thành công!");
+            showListCategory(req, resp);
         } else {
-            req.setAttribute("err", err);
-            req.getRequestDispatcher("/views/category/update.jsp").forward(req, resp);
+            req.setAttribute("category", category);
+            req.getRequestDispatcher("/views/category/form.jsp").forward(req, resp);
         }
 
     }
+
     private void showFormUpdate(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int id = Integer.parseInt(req.getParameter("id"));
         Category category = categoryService.findById(id);
-        if(category!=null) {
-            req.setAttribute("category", category);
-            req.getRequestDispatcher("/views/category/update.jsp").forward(req, resp);
-        }
-        else {
-            resp.sendRedirect("/admin/categories/list");
-        }
+        req.setAttribute("category", category);
+        req.getRequestDispatcher("/views/category/form.jsp").forward(req, resp);
+
     }
 
     private void deleteCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        Category category = categoryService.findById(id);
-        if (category != null) {
+        try {
             categoryService.deleteCategory(id);
+            req.setAttribute("noti", "Xóa phân loại thành công!");
+
+        } catch (SQLException e) {
+            req.setAttribute("error", "Không thể xóa phân loại này vì có sản phẩm thuộc phân loại này");
         }
-        resp.sendRedirect("/admin/categories/list");
+        showListCategory(req, resp);
     }
 
-
-    private void showFormCreateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/views/category/create.jsp").forward(req, resp);
-    }
 
     private void showListCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Category> categories = categoryService.selectAll();

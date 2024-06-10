@@ -31,18 +31,18 @@ public class UserServlet extends HttpServlet {
                 deleteUser(req, resp);
                 break;
             case "/update":
-                showFormUpdate(req,resp);
+                showFormUpdate(req, resp);
                 break;
         }
     }
 
     private void showFormUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       int id = Integer.parseInt(req.getParameter("id"));
-       User user =  userService.findById(id);
-       if(user!=null){
-           req.setAttribute("user",user);
-           req.getRequestDispatcher("/views/user/update.jsp").forward(req,resp);
-       }
+        int id = Integer.parseInt(req.getParameter("id"));
+        User user = userService.findById(id);
+        if (user != null) {
+            req.setAttribute("user", user);
+            req.getRequestDispatcher("/views/user/update.jsp").forward(req, resp);
+        }
         resp.sendRedirect("/admin/users/list");
     }
 
@@ -78,7 +78,7 @@ public class UserServlet extends HttpServlet {
                 addUser(req, resp);
                 break;
             case "/update":
-                updateUser(req,resp);
+                updateUser(req, resp);
                 break;
         }
     }
@@ -88,20 +88,17 @@ public class UserServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        int otp_code = Integer.parseInt(req.getParameter("otp_code"));
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
-        user.setOtp_code(otp_code);
         user.setId(id);
-        List<String> err =  userService.validate(user);
-        if(err.isEmpty()){
+        List<String> err = userService.validate(user);
+        if (err.isEmpty()) {
             userService.updateUser(user);
             resp.sendRedirect("/admin/users/list");
-        }
-        else {
-            req.setAttribute("err",err);
+        } else {
+            req.setAttribute("err", err);
             req.getRequestDispatcher("/views/users/update.jsp").forward(req, resp);
 
         }
@@ -112,12 +109,10 @@ public class UserServlet extends HttpServlet {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        String otp_code = req.getParameter("otp_code");
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setPassword(password);
-        user.setOtp_code(Integer.parseInt(otp_code));
         List<String> err = userService.validate(user);
         if (err.isEmpty()) {
             userService.addUser(user);

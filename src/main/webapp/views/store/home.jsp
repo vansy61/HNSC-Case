@@ -13,7 +13,6 @@
 <body>
 <%@include file="/giao-dien/cua-hang/shared/header.jsp" %>
 <div class="container my-3">
-
     <div class="row">
         <div class="col-8">
             <img src="https://hcm.fstorage.vn/images/2024/06/240515_sub-banner_867x400-egg-copy-20240603015608.jpg"
@@ -30,22 +29,24 @@
         </div>
     </div>
     <div class="mt-5">
-    <div class="row">
-        <c:forEach items="${categories}" var="category">
-            <div class="col-4 mb-2">
-                <a href="/store/categories/show?id=${category.id}" class="text-dark text-decoration-none shadow-sm bg-white rounded-2 p-3 d-flex align-items-center">
-                    <div>
-                        <img src="${category.avatar}" class="rounded-circle object-fit-cover" style="width: 80px; height: 80px;">
-                    </div>
-                    <div class="ms-2">
-                        <h6>${category.name}</h6>
-                        <p class="mb-0"><small>${category.description}</small></p>
-                    </div>
-                </a>
-            </div>
-        </c:forEach>
+        <div class="row">
+            <c:forEach items="${categories}" var="category">
+                <div class="col-4 mb-2">
+                    <a href="/store/categories/show?id=${category.id}"
+                       class="text-dark text-decoration-none shadow-sm bg-white rounded-2 p-3 d-flex align-items-center">
+                        <div>
+                            <img src="${category.avatar}" class="rounded-circle object-fit-cover"
+                                 style="width: 80px; height: 80px;">
+                        </div>
+                        <div class="ms-2">
+                            <h6>${category.name}</h6>
+                            <p class="mb-0"><small>${category.description}</small></p>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
     </div>
-</div>
     <div class="mt-5">
         <div class="p-3 rounded bg-white mb-2">
             <h4 class="mb-0">Sản phẩm mới</h4>
@@ -58,14 +59,16 @@
                             <img src="${product.avatar}"
                                  class="card-img-top">
                             <div class="card-body">
-                                <h6 class="card-title mb-1"><a href="/store/products/show?id=${product.id}" class="text-dark text-decoration-none">${product.name}</a></h6>
+                                <h6 class="card-title mb-1"><a href="/store/products/show?id=${product.id}"
+                                                               class="text-dark text-decoration-none">${product.name}</a>
+                                </h6>
                                 <div class="d-flex align-items-end">
                                     <p class="mb-0 me-3 fs-5 fw-bold text-primary">${product.price}</p>
                                     <p class="mb-0 text-decoration-line-through"><small>${product.costPrice}</small></p>
                                 </div>
                                 <div class="d-grid mt-4">
-                                    <a href="/store/add_cart?product_id=?${product.id}" class="btn btn-outline-primary">
-                                        <i class="fa-solid fa-cart-plus me-2"></i>Thêm vào giỏ hàng
+                                    <a href="/store/cart/add?product_id=${product.id}" class="btn btn-outline-primary">
+                                        <i class="fa-solid fa-cart-plus me-2"></i>Mua ngay
                                     </a>
                                 </div>
                             </div>
